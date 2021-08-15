@@ -1,0 +1,45 @@
+CO,Spectra Raw data
+CO,ADA4
+CO,Description:
+CO,Client:
+CO,Comments:
+CO,Downloaded 2021-08-15 20:58:33
+CO,Software: Pre-install version:18.12.27
+CO,Instrument: Spectra FOCUS 2 208826
+CO,Dist Units: Metres
+CO,Angle Units: Gons
+CO,Zero azimuth: North
+CO,VA: Zenith
+CO,Coord Order: ENZ
+CO,HA Raw data: Azimuth
+CO,Projection correction: OFF
+CO,C&R correction: ON
+CO,Tilt Correction: ON
+CO,ADA4 <JOB> Created 2021-08-15 20:05:18
+MP,S1,,472473.000,4207812.000,100.000,
+MP,S2,,472472.000,4207803.000,100.000,
+CO,Temp:20.0 C Press:1013.2 hPa Prism:-30mm 2021.08.15 20:06:41
+ST,S1,,S2,,1.565,207.0446,207.0446
+F1,S2,0.000,,207.0446,113.7579, 20:06:45
+CO,Temp:20.0 C Press:1013.2 hPa Prism:-30mm 2021.08.15 20:12:08
+CO,HA set in Quick Station
+ST,S1,,,,1.565,0.0000,0.0000
+CO,Temp:20.0 C Press:1013.2 hPa Prism:-30mm 2021.08.15 20:28:29
+ST,S1,,S2,,1.565,207.0446,207.0446
+F1,S2,0.000,,207.0446,113.7702, 20:28:30
+SS,P1,0.000,4.483,125.8430,122.1002, 20:32:36,
+CO,Temp:20.0 C Press:1013.2 hPa Prism:-30mm 2021.08.15 20:42:02
+CO,HA set in Quick Station
+ST,P1,,,,1.565,0.0000,0.0000
+CO,Temp:20.0 C Press:1013.2 hPa Prism:-30mm 2021.08.15 20:43:03
+CO,HA set in Quick Station
+ST,P1,,S1,,1.565,0.0000,0.0000
+SS,P2,0.000,5.376,294.4390,119.4807, 20:46:43,
+CO,Temp:20.0 C Press:1013.2 hPa Prism:-30mm 2021.08.15 20:53:15
+CO,HA set in Quick Station
+ST,P2,,P1,,1.527,0.0000,0.0000
+CO,Temp:20.0 C Press:1013.2 hPa Prism:-30mm 2021.08.15 20:54:29
+CO,HA set in Quick Station
+ST,P2,,P1,,1.527,0.0000,0.0000
+SS,PS2,0.000,3.110,296.3546,133.8486, 20:55:28,
+SS,PS1,0.000,7.159,359.6025,113.5878, 20:56:38,
