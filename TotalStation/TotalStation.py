@@ -1,7 +1,7 @@
 """
 A base Total Station class library
 """
-import Lib.file
+import Lib.file as myFile
 
 
 class TotalStation:
@@ -25,3 +25,8 @@ class TotalStation:
 
     def readRawFile(self, path):
         self.setRawFilePath(path)
+        self._str_rawFileData = myFile.read_TXT(path=path)
+
+    def readPointFile(self, path):
+        self.setPointFilePath(path)
+        self._str_pointFileData = myFile.read_TXT(path=path)
