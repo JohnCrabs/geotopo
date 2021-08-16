@@ -2,6 +2,8 @@
 This file contains a class named point
 """
 
+import numpy as np
+
 
 class Point:
     def __init__(self):
@@ -16,8 +18,14 @@ class Point:
         self.z = z
         self.name = name
 
-    def get(self):
+    def getDict(self):
         return {self.name: {'x': self.x, 'y': self.y, 'z': self.z}}
+
+    def getList(self):
+        return [self.x, self.y, self.z]
+
+    def getArr(self):
+        return np.array([self.x, self.y, self.z])
 
     def get_x(self):
         return self.x
