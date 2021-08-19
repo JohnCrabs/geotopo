@@ -16,7 +16,9 @@ class TotalStation:
                                                'angle_unit': '', 'zero_azimuth': '', 'vertical_angle': '',
                                                'coord_system': '', 'horizontal_angle_raw_data': '',
                                                'projection_correction': '', 'c_r_correction': '',
-                                               'tilt_correction': '', 'created_at': ''}}
+                                               'tilt_correction': '', 'created_at': ''},
+                                  'data': {'point': [], 'measure': []}
+                                  }
 
     def setRawFilePath(self, path):
         self.__str_rawFilePath = path
