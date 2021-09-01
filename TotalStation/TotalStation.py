@@ -2,6 +2,7 @@
 A base Total Station class library
 """
 import Lib.file as myFile
+import Lib.point as myPoint
 
 
 class TotalStation:
@@ -17,7 +18,7 @@ class TotalStation:
                                                'coord_system': '', 'horizontal_angle_raw_data': '',
                                                'projection_correction': '', 'c_r_correction': '',
                                                'tilt_correction': '', 'created_at': ''},
-                                  'data': {'point': [], 'measure': []}
+                                  'data': {'point': {}, 'measure': {}}
                                   }
 
     def setRawFilePath(self, path):
@@ -40,6 +41,34 @@ class TotalStation:
         self.setPointFilePath(path)
         self.__str_pointFileData = myFile.read_TXT(path=path)
 
+    def readPointFile_NameXYZ(self, path, delimiter=','):
+        self.setPointFilePath(path)
+        self.__str_pointFileData = myFile.read_TXT(path=path)
+        for point in self.__str_pointFileData:
+            coordinates = point.lstrip().rstrip().split(delimiter)
+            # print(coordinates)
+            self._dict_rawFileInfo['data']['point'][coordinates[0]] = myPoint.Point()
+            self._dict_rawFileInfo['data']['point'][coordinates[0]].set(coordinates[1],
+                                                                        coordinates[2],
+                                                                        coordinates[3],
+                                                                        coordinates[0])
+
+        # for key in self._dict_rawFileInfo['data']['point'].keys():
+        #    print(self._dict_rawFileInfo['data']['point'][key].getDict())
+
+    def createAutocadSRCFile(self, path: str):
+        textExport = ''
+        # Example: point 499990.537,499983.388,399.872 -text @ 0.5 0 52
+        for key in self._dict_rawFileInfo['data']['point'].keys():
+            textExport += 'point '
+            textExport += str(self._dict_rawFileInfo['data']['point'][key].get_x()) + ','
+            textExport += str(self._dict_rawFileInfo['data']['point'][key].get_y()) + ','
+            textExport += str(self._dict_rawFileInfo['data']['point'][key].get_z()) + ' -text @ 0.25 0 '
+            textExport += str(self._dict_rawFileInfo['data']['point'][key].get_name()) + '\n'
+
+        # print(textExport)
+        myFile.write_TXT(path=path,  text=textExport)
+
     def viewRawData(self):
         print('\n\n\n*** RAW DATA FILE ***')
         print(self.__str_rawFileData)
@@ -57,3 +86,10 @@ class TotalStation:
     def viewRawFileMetadata(self):
         for key in self._dict_rawFileInfo['metadata'].keys():
             print(key + ':', self._dict_rawFileInfo['metadata'][key])
+
+
+if __name__ == "__main__":
+    point_NXYZ_path = '../TestData/POINTS_NXYZ.txt'
+    ts = TotalStation()
+    ts.readPointFile_NameXYZ(path=point_NXYZ_path, delimiter=',')
+    ts.createAutocadSRCFile(path='../TestData/AUTOCAD_SRC.txt')

@@ -25,3 +25,15 @@ def read_TXT(path: str):
         with open(path, "r") as myFile:  # Open the file if exists
             data = myFile.readlines()  # Read the file
     return data  # return data string
+
+
+def write_TXT(path: str, text: str):
+    """
+    This function create a file and write in it the text.
+    :param path: path to the file
+    :param text: text to write in file
+    :return: Nothing
+    """
+    with open(path, 'w') as f:
+        f.write(text)
+    f.close()
