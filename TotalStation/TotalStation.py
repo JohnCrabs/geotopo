@@ -89,7 +89,7 @@ class TotalStation:
 
 
 if __name__ == "__main__":
-    point_NXYZ_path = '../TestData/POINTS_NXYZ.txt'
+    point_NXYZ_path = '../TestData/POINTS3_NXYZ.txt'
     ts = TotalStation()
     ts.readPointFile_NameXYZ(path=point_NXYZ_path, delimiter=',')
-    ts.createAutocadSRCFile(path='../TestData/AUTOCAD_SRC.txt')
+    ts.createAutocadSRCFile(path='../TestData/AUTOCAD3_SRC.txt')
