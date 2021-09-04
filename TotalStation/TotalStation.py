@@ -56,14 +56,15 @@ class TotalStation:
         # for key in self._dict_rawFileInfo['data']['point'].keys():
         #    print(self._dict_rawFileInfo['data']['point'][key].getDict())
 
-    def createAutocadSRCFile(self, path: str):
+    def createAutocadSRCFile(self, path: str, textSize=0.5, transparency=0):
         textExport = ''
         # Example: point 499990.537,499983.388,399.872 -text @ 0.5 0 52
         for key in self._dict_rawFileInfo['data']['point'].keys():
             textExport += 'point '
             textExport += str(self._dict_rawFileInfo['data']['point'][key].get_x()) + ','
             textExport += str(self._dict_rawFileInfo['data']['point'][key].get_y()) + ','
-            textExport += str(self._dict_rawFileInfo['data']['point'][key].get_z()) + ' -text @ 0.25 0 '
+            textExport += str(self._dict_rawFileInfo['data']['point'][key].get_z()) + ' -text @ ' + textSize.__str__()
+            textExport += ' ' + transparency.__str__() + ' '
             textExport += str(self._dict_rawFileInfo['data']['point'][key].get_name()) + '\n'
 
         # print(textExport)
@@ -89,7 +90,23 @@ class TotalStation:
 
 
 if __name__ == "__main__":
+    # Example of reading coordinates as (Name,X,Y,Z) CSV file and export them as autocad command lines.
+    point_NXYZ_path = '../TestData/POINTS_NXYZ.txt'
+    ts = TotalStation()
+    ts.readPointFile_NameXYZ(path=point_NXYZ_path, delimiter=',')
+    ts.createAutocadSRCFile(path='../TestData/AUTOCAD0_SRC.txt', textSize=0.1, transparency=0)
+
+    point_NXYZ_path = '../TestData/POINTS1_NXYZ.txt'
+    ts = TotalStation()
+    ts.readPointFile_NameXYZ(path=point_NXYZ_path, delimiter=',')
+    ts.createAutocadSRCFile(path='../TestData/AUTOCAD1_SRC.txt', textSize=0.1, transparency=0)
+
+    point_NXYZ_path = '../TestData/POINTS2_NXYZ.txt'
+    ts = TotalStation()
+    ts.readPointFile_NameXYZ(path=point_NXYZ_path, delimiter=',')
+    ts.createAutocadSRCFile(path='../TestData/AUTOCAD2_SRC.txt', textSize=0.1, transparency=0)
+
     point_NXYZ_path = '../TestData/POINTS3_NXYZ.txt'
     ts = TotalStation()
     ts.readPointFile_NameXYZ(path=point_NXYZ_path, delimiter=',')
-    ts.createAutocadSRCFile(path='../TestData/AUTOCAD3_SRC.txt')
+    ts.createAutocadSRCFile(path='../TestData/AUTOCAD3_SRC.txt', textSize=0.1, transparency=0)
