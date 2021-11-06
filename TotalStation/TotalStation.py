@@ -110,3 +110,8 @@ if __name__ == "__main__":
     ts = TotalStation()
     ts.readPointFile_NameXYZ(path=point_NXYZ_path, delimiter=',')
     ts.createAutocadSRCFile(path='../TestData/AUTOCAD3_SRC.txt', textSize=0.1, transparency=0)
+
+    point_NXYZ_path = '../otherData/syntetagmenesEgsa87_Dimitra.csv'
+    ts = TotalStation()
+    ts.readPointFile_NameXYZ(path=point_NXYZ_path, delimiter=',')
+    ts.createAutocadSRCFile(path='../otherData/syntetagmenesEgsa87_Dimitra.csv', textSize=0.1, transparency=0)
